@@ -294,6 +294,70 @@ float getTimeDelta() {
 
 
 #define MESSGAE_COUNT 40
+
+
+const char messages[MESSGAE_COUNT][150] = {
+		"Lunch?",
+		"",
+		"",
+		"",
+		"",
+
+		"",
+		"",
+		"",
+		"",
+		"",
+
+//		"Thanks Jay for the great story!",
+//		"Welcome to the Skeptics Guide to the Universe!",
+//		"Go SGU!",
+//		"Just a normal hat.",
+//		"I don't think the cat is a fan of this hat...",
+//
+//
+//		"Hope to see you all at TAM 2017!",
+
+
+		"",
+		"",
+		"",
+		"",
+		"",
+
+		"",
+		"",
+		"",
+		"",
+		"",
+
+		"",
+		"",
+		"",
+		"",
+		"",
+
+		"",
+		"",
+		"",
+		"",
+		"",
+
+		"",
+		"",
+		"",
+		"",
+		"",
+
+		"",
+		"",
+		"",
+		"",
+		""
+};
+
+/*
+
 const char messages[MESSGAE_COUNT][150] = {
 //---------------------------------------------------------------------------------------------------------------------------------- Message end ->|
 "Nõo",
@@ -347,6 +411,7 @@ const char messages[MESSGAE_COUNT][150] = {
 
 
 };
+*/
 
 
 hsv randomColour;
@@ -409,7 +474,7 @@ void main(void) {
 //	PMAP->rKEYID = 0x00;
 
 	initDisplay();
-	setDisplayCurrentLimit(1.5f);
+	setDisplayCurrentLimit(1.6f);
 
 
 
@@ -513,13 +578,14 @@ void main(void) {
 //			scrollStart = time;
 				scrollPosition = GFX_WIDTH;
 				scrollTick = 0;
-//			messageNumber = (messageNumber + 1) % MESSGAE_COUNT;
-				messageNumber = getRandomMessageNumber();
+			messageNumber = (messageNumber + 1) % MESSGAE_COUNT;
+//				messageNumber = getRandomMessageNumber();
 
 				//skip empty ones
 				while (messages[messageNumber][0] == '\0') {
-					messageNumber = getRandomMessageNumber();
+//					messageNumber = getRandomMessageNumber();
 
+					messageNumber = (messageNumber + 1) % MESSGAE_COUNT;
 				}
 
 				currentMessageColour = rand() % MESSAGE_COLOR_COUNT;
